@@ -148,8 +148,9 @@ export async function GET(request: Request) {
   const token = process.env.MARKET_PULSE_TOKEN;
   const scheme = process.env.MARKET_PULSE_AUTH_SCHEME ?? 'Token';
   const incomingAuth = request.headers.get('authorization');
-  const cookieToken = cookies().get('mp_access')?.value;
-  const cookieScheme = cookies().get('mp_scheme')?.value;
+  const cookieStore = await cookies();
+  const cookieToken = cookieStore.get('mp_access')?.value;
+  const cookieScheme = cookieStore.get('mp_scheme')?.value;
 
   if (incomingAuth) {
     headers.Authorization = incomingAuth;

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { fetchNews, rankMsmeNews, NewsArticle } from '@/lib/api';
 import NewsCard from '@/components/NewsCard';
 import SearchBar from '@/components/SearchBar';
+import LinkedInAutomation from '@/components/LinkedInAutomation';
 
 export default function HomePage() {
   const TOP_LIMIT = 5;
@@ -469,6 +470,11 @@ export default function HomePage() {
             )}
           </div>
         </section>
+
+        {/* 🔥 LinkedIn Comment Automation Section */}
+        <div className="mt-20 border-t border-slate-800/80 pt-16">
+          <LinkedInAutomation />
+        </div>
       </div>
     </main>
   );

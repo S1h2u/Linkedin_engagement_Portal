@@ -1,0 +1,6 @@
+django==5.1.1
+openai>=1.0.0
+playwright==1.43.0
+python-dotenv==1.0.1
+requests==2.31.0
+streamlit==1.39.0
