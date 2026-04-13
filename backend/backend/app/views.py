@@ -54,14 +54,13 @@ def linkedin_login(request: HttpRequest) -> JsonResponse:
     except Exception as exc:
         response = JsonResponse({"error": str(exc)}, status=500)
         return add_cors_headers(response)
-== "OPTIONS":
-        response = JsonResponse({})
-        return add_cors_headers(response)
-    
-    if request.method 
+
 
 @csrf_exempt
 def linkedin_run(request: HttpRequest) -> JsonResponse:
+    if request.method == "OPTIONS":
+        response = JsonResponse({})
+        return add_cors_headers(response)
     if request.method != "POST":
         response = JsonResponse({"error": "Method not allowed"}, status=405)
         return add_cors_headers(response)
